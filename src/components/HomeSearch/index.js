@@ -4,6 +4,7 @@ import styles from './styles';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const HomeSearch = props => {
   return (
@@ -18,7 +19,21 @@ const HomeSearch = props => {
         </View>
       </View>
       {/* previous destination */}
-      {/* Home Destination */}
+      <View style={styles.previousDestinationContainer}>
+        <View style={styles.row}>
+          <View style={styles.iconContainer}>
+            <AntDesign name="clockcircle" size={20} color="#535353" />
+          </View>
+          <Text style={styles.destinationText}>Howdy F7 Islamabad</Text>
+        </View>
+        {/* Home Destination */}
+        <View style={styles.row}>
+          <View style={[styles.iconContainer, {backgroundColor: '#346294'}]}>
+            <Entypo name="home" size={20} color="#ffffff" />
+          </View>
+          <Text style={styles.destinationText}>Howdy F7 Islamabad</Text>
+        </View>
+      </View>
     </View>
   );
 };

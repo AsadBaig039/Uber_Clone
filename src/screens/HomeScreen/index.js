@@ -9,7 +9,9 @@ import HomeSearch from '../../components/HomeSearch';
 const HomeScreen = props => {
   return (
     <View style={styles.mainContainer}>
-      <HomeMap />
+      <View style={styles.mapContainer}>
+        <HomeMap />
+      </View>
       <CovidMessage />
       <HomeSearch />
     </View>
