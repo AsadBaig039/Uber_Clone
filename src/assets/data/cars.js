@@ -5,7 +5,7 @@ export default [
     latitude: 28.450627,
     longitude: -16.263045,
     heading: 130,
-    image: require('../images/top-Comfort.png'),
+    image: require('../images/UberX.jpeg'),
   },
   {
     id: '1',
@@ -13,7 +13,7 @@ export default [
     latitude: 28.456312,
     longitude: -16.252929,
     heading: 0,
-    image: require('../images/top-Comfort.png'),
+    image: require('../images/Comfort.jpeg'),
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ export default [
     latitude: 28.456208,
     longitude: -16.259098,
     heading: 250,
-    image: require('../images/top-UberXL.png'),
+    image: require('../images/UberXL.jpeg'),
   },
   {
     id: '3',
