@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
 import type {Node} from 'react';
 import {StatusBar, View, PermissionsAndroid, Platform} from 'react-native';
@@ -5,9 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Geolocation from '@react-native-community/geolocation';
 navigator.geolocation = require('@react-native-community/geolocation');
 
-import HomeScreen from './src/screens/HomeScreen';
-import DestinationSearch from './src/screens/DestinationSearch';
-import SearchResults from './src/screens/SearchResults';
+import Router from './src/navigation/Root';
 
 const App: () => Node = () => {
   const androidPermission = async () => {
@@ -45,9 +44,7 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar barStyle="default" />
-      {/* <HomeScreen /> */}
-      <DestinationSearch />
-      {/* <SearchResults /> */}
+      <Router />
     </>
   );
 };

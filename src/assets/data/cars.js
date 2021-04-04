@@ -2,18 +2,26 @@ export default [
   {
     id: '0',
     type: 'UberX',
-    latitude: 28.450627,
-    longitude: -16.263045,
+    latitude: 33.6007,
+    longitude: 73.0679,
     heading: 130,
-    image: require('../images/UberX.jpeg'),
+    image: require('../images/top-UberX.png'),
+    location: {
+      latitude: 33.6007,
+      longitude: 73.0679,
+    },
   },
   {
     id: '1',
     type: 'Comfort',
-    latitude: 28.456312,
-    longitude: -16.252929,
+    latitude: 33.6007,
+    longitude: 73.0679,
     heading: 0,
-    image: require('../images/Comfort.jpeg'),
+    image: require('../images/top-Comfort.png'),
+    location: {
+      latitude: 33.6007,
+      longitude: 73.0679,
+    },
   },
   {
     id: '2',
@@ -22,6 +30,10 @@ export default [
     longitude: -16.259098,
     heading: 250,
     image: require('../images/UberXL.jpeg'),
+    location: {
+      latitude: 33.6007,
+      longitude: 73.0679,
+    },
   },
   {
     id: '3',
@@ -30,5 +42,9 @@ export default [
     longitude: -16.258658,
     heading: 30,
     image: require('../images/top-Comfort.png'),
+    location: {
+      latitude: 33.6007,
+      longitude: 73.0679,
+    },
   },
 ];

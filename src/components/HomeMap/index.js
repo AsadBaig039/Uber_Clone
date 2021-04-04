@@ -4,6 +4,7 @@ import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import styles from './styles';
 import cars from '../../assets/data/cars';
 import uberX from '../../assets/images/top-UberX.png';
+import MapMarkerView from '../MapMakerView';
 
 const HomeMap = props => {
   const getImage = type => {
@@ -16,21 +17,30 @@ const HomeMap = props => {
     return require('../../assets/images/top-UberXL.png');
   };
 
+  const origin = {
+    latitude: 33.6007,
+    longitude: 73.0679,
+  };
+  const destination = {
+    latitude: 33.72148,
+    longitude: 73.04329,
+  };
+
   return (
     <MapView
       provider={PROVIDER_GOOGLE}
       style={styles.googleMapStyle}
+      showsUserLocation={true}
       initialRegion={{
-        latitude: 28.450627,
-        longitude: -16.263045,
+        latitude: 33.6007,
+        longitude: 73.0679,
         latitudeDelta: 0.0222,
         longitudeDelta: 0.0121,
       }}>
       {cars.map(car => {
-        <Marker
-          key={car.id}
-          coordinate={{latitude: car.latitude, longitude: car.longitude}}>
-          <Image
+        <Marker key={car.id} coordinate={car.location} />;
+        {
+          /* <Image
             styles={{
               width: 70,
               height: 70,
@@ -42,8 +52,8 @@ const HomeMap = props => {
               ],
             }}
             source={getImage(car.type)}
-          />
-        </Marker>;
+          /> */
+        }
       })}
     </MapView>
   );

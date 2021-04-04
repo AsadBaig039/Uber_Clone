@@ -1,9 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import {View, TextInput, Text, SafeAreaView, Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {Input} from 'react-native-elements';
 import styles from './styles';
 import PlaceRow from './PlaceRow';
+
+const homePlace = {
+  description: 'Home',
+  geometry: {location: {lat: 33.6007, lng: 73.0679}},
+};
+const workPlace = {
+  description: 'Work',
+  geometry: {location: {lat: 33.72148, lng: 73.04329}},
+};
 
 const GOOGLE_PLACES_API_KEY = 'AIzaSyCAEYqTWySJTJDBRBdPHropi_2L1ouvP2U';
 
@@ -16,10 +27,16 @@ const DestinationSearch = props => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
 
-  useEffect(() => {
+  const navigation = useNavigation();
+
+  const checkNavigation = () => {
     if (originPlace && destinationPlace) {
-      console.warn('Redirect to results');
+      navigation.navigate('SearchResults', {originPlace, destinationPlace});
     }
+  };
+
+  useEffect(() => {
+    checkNavigation();
   }, [originPlace, destinationPlace]);
 
   const emptyListMessage = props => {
@@ -45,7 +62,7 @@ const DestinationSearch = props => {
           placeholder="From?"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
-            console.log(data, details);
+            // console.log(data, details);
           }}
           styles={{
             textInput: styles.textInput,
@@ -70,6 +87,7 @@ const DestinationSearch = props => {
           fetchDetails
           enablePoweredByContainer={false}
           listEmptyComponent={emptyListMessage}
+          predefinedPlaces={[homePlace, workPlace]}
           query={{
             key: GOOGLE_PLACES_API_KEY,
             language: 'en',
@@ -82,12 +100,12 @@ const DestinationSearch = props => {
           placeholder="Where to?"
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
-            console.log(data, details);
+            // console.log(data, details);
           }}
           styles={{
             textInput: styles.textInput,
             container: {...styles.autoCompleteContainer, top: 75},
-            listView: {...styles.listView, top: 105},
+            listView: {...styles.listView, top: 75},
             separator: styles.separator,
           }}
           textInputProps={{
@@ -103,6 +121,9 @@ const DestinationSearch = props => {
             },
           }}
           fetchDetails
+          enablePoweredByContainer={false}
+          listEmptyComponent={emptyListMessage}
+          predefinedPlaces={[homePlace, workPlace]}
           query={{
             key: GOOGLE_PLACES_API_KEY,
             language: 'en',
