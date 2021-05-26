@@ -6,6 +6,8 @@ import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
 import {Input} from 'react-native-elements';
 import styles from './styles';
 import PlaceRow from './PlaceRow';
+import API_KEY = '../../../Constants';
+
 
 const homePlace = {
   description: 'Home',
@@ -16,7 +18,7 @@ const workPlace = {
   geometry: {location: {lat: 33.72148, lng: 73.04329}},
 };
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = API_KEY;
 
 const DestinationSearch = props => {
   const [resultText, setResultText] = useState(false);

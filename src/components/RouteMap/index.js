@@ -2,9 +2,9 @@ import React from 'react';
 import {Image, FlatList} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import API_KEY = '../../../Constants.js';
 
 import styles from './styles';
-require('dotenv').config();
 
 const RouteMap = ({origin, destination}) => {
   const originLoc = {
@@ -26,7 +26,7 @@ const RouteMap = ({origin, destination}) => {
   //   latitude: 33.72148,
   //   longitude: 73.04329,
   // };
-  const API_KEY = process.env.API_KEY;
+  const API_KEY =API_KEY;
   return (
     <MapView
       style={styles.googleMapStyle}
