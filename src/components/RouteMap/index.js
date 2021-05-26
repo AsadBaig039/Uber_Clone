@@ -4,6 +4,7 @@ import MapView, {Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import styles from './styles';
+require('dotenv').config();
 
 const RouteMap = ({origin, destination}) => {
   const originLoc = {
@@ -25,7 +26,7 @@ const RouteMap = ({origin, destination}) => {
   //   latitude: 33.72148,
   //   longitude: 73.04329,
   // };
-  const GOOGLE_MAPS_APIKEY = 'AIzaSyCAEYqTWySJTJDBRBdPHropi_2L1ouvP2U';
+  const API_KEY = process.env.API_KEY;
   return (
     <MapView
       style={styles.googleMapStyle}
@@ -39,7 +40,7 @@ const RouteMap = ({origin, destination}) => {
       <MapViewDirections
         origin={originLoc}
         destination={destinationLoc}
-        apikey={GOOGLE_MAPS_APIKEY}
+        apikey={API_KEY}
         strokeWidth={4}
         strokeColor="black"
       />

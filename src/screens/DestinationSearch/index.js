@@ -16,7 +16,7 @@ const workPlace = {
   geometry: {location: {lat: 33.72148, lng: 73.04329}},
 };
 
-const GOOGLE_PLACES_API_KEY = 'AIzaSyCAEYqTWySJTJDBRBdPHropi_2L1ouvP2U';
+const API_KEY = process.env.API_KEY;
 
 const DestinationSearch = props => {
   const [resultText, setResultText] = useState(false);
@@ -89,7 +89,7 @@ const DestinationSearch = props => {
           listEmptyComponent={emptyListMessage}
           predefinedPlaces={[homePlace, workPlace]}
           query={{
-            key: GOOGLE_PLACES_API_KEY,
+            key: API_KEY,
             language: 'en',
           }}
           renderRow={data => <PlaceRow data={data} />}
@@ -125,7 +125,7 @@ const DestinationSearch = props => {
           listEmptyComponent={emptyListMessage}
           predefinedPlaces={[homePlace, workPlace]}
           query={{
-            key: GOOGLE_PLACES_API_KEY,
+            key: API_KEY,
             language: 'en',
           }}
           renderRow={data => <PlaceRow data={data} />}
