@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, FlatList} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import API_KEY = '../../../Constants.js';
+import API_KEY from '../../config/API_KEY';
 
 import styles from './styles';
 
@@ -26,7 +26,6 @@ const RouteMap = ({origin, destination}) => {
   //   latitude: 33.72148,
   //   longitude: 73.04329,
   // };
-  const API_KEY =API_KEY;
   return (
     <MapView
       style={styles.googleMapStyle}
